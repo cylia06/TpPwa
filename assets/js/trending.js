@@ -94,36 +94,39 @@ window.addEventListener("DOMContentLoaded", async function () {
     setLoading(true);
 
     // TODO: 1a - Set up a new URL object to use Giphy trending endpoint
-
+    
     // TODO: 1b - Set proper query parameters to the newly created URL object
-
+    const url = "http://api.giphy.com/v1/gifs/trending?api_key=dMUZ07WT6bsD3QTgDvqEbbHVEYwnJ5MZ&limiter=24"
+    const options = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
     try {
-        // TODO: 1c - Fetch GIFs from Giphy Trending endpoint
 
-        // TODO: 1d - If response is not valid, return
-
-        // TODO: 1e - Convert Giphy response to json
-
-        // TODO: 1f - Use 'response.data' in the constant 'gifs' instead of an empty array
-        const gifs = []; // replace array by data
-
+        fetch(url, options).then(res => 
+            res.json()
+        ).then(json => {
+        const gifs = json.data;
         const db = window.db;
-
-        // TODO: 4d - Open IndexedDB's database
-
-        // Display every GIF
         gifs.forEach(async gif => {
-            // TODO: 4e - Get GIF from IndexedDB's database, by its ID
-
-            // TODO: 4f - Create a boolean `isSaved` to check if the GIF was already saved
+        
             const isSaved = false; // replace false by the condition
-
-            // TODO: 1g - Call the function buildGIFCard with proper parameters
-            // TIP: Use the boolean `isSaved`
+            //console.log('giffffff '+ JSON.stringify(gif));
+            buildGIFCard(gif, isSaved);
         });
+
+           
+        }).catch( e => console.log(e));
+          
+        
     } catch (e) {
+        console.log("erreur de chargement");
+        
         // TODO: 1h - Display a message in console in case of error
     } finally {
         setLoading(false);
+       
     }
 });

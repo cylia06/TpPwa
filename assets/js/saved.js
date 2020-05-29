@@ -8,6 +8,16 @@ function removeGIFFromFavorite(event) {
 
     const db = window.db;
 
+    dbs.open().then(async (db) =>{
+        
+        await db.gifs.delete(gifId);
+    }).catch('NoSuchDatabaseError', function(e) {
+        // Database with that name did not exist
+        console.error ("Database not found");
+    }).catch(function (e) {
+        console.error ("Oh uh: " + e);
+    });
+   
     // TODO: 6a - Open IndexedDB's database
 
     // TODO: 6b - Remove GIF from local database using its ID
@@ -73,8 +83,23 @@ function buildGIFCard(gifItem) {
 }
 
 window.addEventListener("DOMContentLoaded", async function () {
-    const db = window.db;
+    const dbs = window.db;
+    var gifsList = [];
 
+    dbs.open().then(async (db) =>{
+        
+        gifsList = await db.gifs
+        .toArray();
+    }).catch('NoSuchDatabaseError', function(e) {
+        // Database with that name did not exist
+        console.error ("Database not found");
+    }).catch(function (e) {
+        console.error ("Oh uh: " + e);
+    });
+    gifsList.forEach(gif => {
+        buildGIFCard(gif, false);
+        
+    });
     // TODO: 5a - Open IndexedDB's database
 
     // TODO: 5b - Fetch saved GIFs from local database and display them (use function buildGIFCard)

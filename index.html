@@ -165,18 +165,28 @@
     <script src="/assets/js/dexie.min.js"></script>
     <script>
         // TODO: 4a - Declare a new local database using Dexie named 'ILoveGifs' (case-sensitive)
-        window.db = null; // Replace null here by new database objedt
+       
+        window.db = new Dexie("ILoveGifs"); // Replace null here by new database objedt
 
         // TODO: 4b - Declare a table named 'gifs' that stores the following columns: 'id', 'title', 'imageUrl', 'videoUrl'
+
+        db.version(1).stores({
+            gifs: "++id, title, imageUrl, videoUrl"    
+        });
     </script>
     <script src="/assets/js/trending.js"></script>
     <script>
-        // TODO: 3a - Check if navigator supports Service Workers
-        if (true) { // Replace `true` by the proper condition
-            // TODO: 3b - Register your service worker (located in /sw.js)
-        } else {
-            // TODO: 3c - If not, display a message in console
-        }
+        if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('sw.js')
+          .then(reg => {
+            console.log('Service worker registered! ', reg);
+          })
+          .catch(err => {
+            console.log(' Service worker registration failed: ', err);
+          });
+      });
+    }
     </script>
 </body>
 
