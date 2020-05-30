@@ -4,45 +4,45 @@ Index des consignes
 (96) 1a - Set up a new URL object to use Giphy trending endpoint  OK
 (98) 1b - Set proper query parameters to the newly created URL object   OK
 (101) 1c - Fetch GIFs from Giphy Trending endpoint   OK
-(103) 1d - If response is not valid, return
-(105) 1e - Convert Giphy response to json
+(103) 1d - If response is not valid, return ok
+(105) 1e - Convert Giphy response to json ok
 (107) 1f - Use 'response.data' in the constant 'gifs' instead of an empty array  OK
-(121) 1g - Call the function buildGIFCard with proper parameters
-(125) 1h - Display a message in console in case of error
+(121) 1g - Call the function buildGIFCard with proper parameters ok
+(125) 1h - Display a message in console in case of error ok 
 
 sw.js
-(6) 2a - Declare files and URLs to cache at Service Worker installation
-(13) 2b - On install, add app shell files to cache
-(15) 2c - On activation, remove obsolete caches
-(17) 2d - On intercepted fetch, use the strategy of your choice to respond to requests
+(6) 2a - Declare files and URLs to cache at Service Worker installation  ok
+(13) 2b - On install, add app shell files to cache ok
+(15) 2c - On activation, remove obsolete caches  ok
+(17) 2d - On intercepted fetch, use the strategy of your choice to respond to requests  ok 
 
 index.html
-(174) 3a - Check if navigator supports Service Workers
-(176) 3b - Register your service worker (located in /sw.js)
-(178) 3c - If not, display a message in console
+(174) 3a - Check if navigator supports Service Workers ok
+(176) 3b - Register your service worker (located in /sw.js) ok
+(178) 3c - If not, display a message in console ok
 
 saved.html
-(172) 3d - Check if navigator supports Service Workers
-(174) 3e - Register your service worker (located in /sw.js)
-(176) 3f - If not, display a message in console
+(172) 3d - Check if navigator supports Service Workers  ok
+(174) 3e - Register your service worker (located in /sw.js) ok
+(176) 3f - If not, display a message in console ok
 
 search.html
-(187) 3g - Check if navigator supports Service Workers
-(189) 3h - Register your service worker (located in /sw.js)
-(191) 3i - If not, display a message in console
+(187) 3g - Check if navigator supports Service Workers  ok
+(189) 3h - Register your service worker (located in /sw.js)  ok
+(191) 3i - If not, display a message in console  ok
 
 index.html
-(167) 4a - Declare a new local database using Dexie named 'ILoveGifs' (case-sensitive)
-(170) 4b - Declare a table named 'gifs' that stores the following columns: 'id', 'title', 'imageUrl', 'videoUrl'
+(167) 4a - Declare a new local database using Dexie named 'ILoveGifs' (case-sensitive)  ok
+(170) 4b - Declare a table named 'gifs' that stores the following columns: 'id', 'title', 'imageUrl', 'videoUrl' ok
 
 saved.html
-(165) 4c - Declare a new local database using Dexie named 'ILoveGifs' (case-sensitive)
+(165) 4c - Declare a new local database using Dexie named 'ILoveGifs' (case-sensitive) ok
 (168) 4d - Declare a table named 'gifs' that stores the following columns: 'id', 'title', 'imageUrl', 'videoUrl'
-
+(  !!!!!!!!! A REVOIR    ====)
 search.html
 (180) 4e - Declare a new local database using Dexie named 'ILoveGifs' (case-sensitive)
 (183) 4f - Declare a table named 'gifs' that stores the following columns: 'id', 'title', 'imageUrl', 'videoUrl'
-
+(  !!!!!!!!! A REVOIR    ====)
 /assets/js/saved.js
 (78) 5a - Open IndexedDB's database
 (80) 5b - Fetch saved GIFs from local database and display them (use function buildGIFCard)
