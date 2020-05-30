@@ -29,9 +29,22 @@ function addGIFToFavorite(event) {
 
     const gifTitle = gifElement.querySelector('div h3').textContent;
     const gifVideoUrl = gifElement.querySelector('source').src;
-    const gifImageUrl = gifElement.querySelector('img').src;
+    const gifImageUrl = gifElement.querySelector('img').dataset.src;
 
     // TODO: 9i - Open IndexedDB's database
+
+    console.log("debug search")
+    console.log(event)
+    window.db.open().then(async (db) =>{
+        
+        await db.gifs.add({title : gifTitle, imageUrl: gifImageUrl, videoUrl:gifVideoUrl});
+        
+    }).catch('NoSuchDatabaseError', function(e) {
+        // Database with that name did not exist
+        console.error ("Database not found");
+    }).catch(function (e) {
+        console.error ("Oh uh: " + e);
+    });
 
     // TODO: 9j - Save GIF data into IndexedDB's database
 
@@ -103,36 +116,40 @@ async function searchGIFs() {
     setLoading(true);
 
     const query = searchBar.value;
-
-    // TODO: 9a - Set up a new URL object to use Giphy search endpoint
-
-    // TODO: 9b - Set proper query parameters to the newly created URL object
+    //const url = "https://api.giphy.com/v1/gifs/search?api_key=dMUZ07WT6bsD3QTgDvqEbbHVEYwnJ5MZ&q=" + query + "&limit=24"
+    const url = "https://api.giphy.com/v1/gifs/search?api_key=dMUZ07WT6bsD3QTgDvqEbbHVEYwnJ5MZ&q="+query+"&limit=25&offset=0&rating=G&lang=en"
+    const options = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
 
     try {
-        // TODO: 9c - Fetch GIFs from Giphy Search endpoint
 
-        // TODO: 9d - If response is not valid, return
 
-        // TODO: 9e - Convert Giphy response to json
-
-        // TODO: 9f - Use 'response.data' in the constant 'gifs' instead of an empty array
-        const gifs = [];
-
-        const db = window.db;
-
-        // TODO: 9l - Open IndexedDB's database
-
-        // Display every GIF
+    fetch(url, options).then(res => 
+            res.json()
+    ).then(json => {
+        var gifs = json.data
+        console.log(gifs[0])
         gifs.forEach(async gif => {
             // TODO: 9m - Get GIF from IndexedDB's database, by its ID
 
             // TODO: 9n - Create a boolean `isSaved` to check if the GIF was already saved
             const isSaved = false; // replace `false` by condition
 
+                buildGIFCard(gif, isSaved);
+            
             // TODO: 9g - Call the function buildGIFCard with proper parameters
             // TIP: Use the boolean `isSaved`
         });
-    } catch (e) {
+
+       
+    }).catch( e => console.log(e));
+    }
+    catch (e) {
+        console.log("erreur de chargement");
         // TODO: 9h - Display a message in console in case of error
     } finally {
         setLoading(false);

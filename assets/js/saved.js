@@ -87,19 +87,17 @@ window.addEventListener("DOMContentLoaded", async function () {
     var gifsList = [];
 
     dbs.open().then(async (db) =>{
-        
+
         gifsList = await db.gifs
         .toArray();
-    }).catch('NoSuchDatabaseError', function(e) {
-        // Database with that name did not exist
-        console.error ("Database not found");
-    }).catch(function (e) {
-        console.error ("Oh uh: " + e);
-    });
-    gifsList.forEach(gif => {
-        buildGIFCard(gif, false);
-        
-    });
+        console.log(gifsList);
+        gifsList.forEach(gif => {
+            buildGIFCard(gif, false);
+            
+        });
+       
+    })
+   
     // TODO: 5a - Open IndexedDB's database
 
     // TODO: 5b - Fetch saved GIFs from local database and display them (use function buildGIFCard)

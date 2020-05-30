@@ -1,12 +1,12 @@
 Index des consignes
 
 /assets/js/trending.js
-(96) 1a - Set up a new URL object to use Giphy trending endpoint
-(98) 1b - Set proper query parameters to the newly created URL object
-(101) 1c - Fetch GIFs from Giphy Trending endpoint
+(96) 1a - Set up a new URL object to use Giphy trending endpoint  OK
+(98) 1b - Set proper query parameters to the newly created URL object   OK
+(101) 1c - Fetch GIFs from Giphy Trending endpoint   OK
 (103) 1d - If response is not valid, return
 (105) 1e - Convert Giphy response to json
-(107) 1f - Use 'response.data' in the constant 'gifs' instead of an empty array
+(107) 1f - Use 'response.data' in the constant 'gifs' instead of an empty array  OK
 (121) 1g - Call the function buildGIFCard with proper parameters
 (125) 1h - Display a message in console in case of error
 
@@ -83,16 +83,16 @@ search.html
 (97) 8d - Use Manifest here by using a <link>
 
 /assets/js/search.js
-(107) 9a - Set up a new URL object to use Giphy search endpoint
-(109) 9b - Set proper query parameters to the newly created URL object
-(112) 9c - Fetch GIFs from Giphy Search endpoint
-(114) 9d - If response is not valid, return
-(116) 9e - Convert Giphy response to json
-(118) 9f - Use 'response.data' in the constant 'gifs' instead of an empty array
-(132) 9g - Call the function buildGIFCard with proper parameters
-(136) 9h - Display a message in console in case of error
-(34) 9i - Open IndexedDB's database
-(36) 9j - Save GIF data into IndexedDB's database
+(107) 9a - Set up a new URL object to use Giphy search endpoint ok
+(109) 9b - Set proper query parameters to the newly created URL object  ok
+(112) 9c - Fetch GIFs from Giphy Search endpoint ok
+(114) 9d - If response is not valid, return  ok
+(116) 9e - Convert Giphy response to json  ok
+(118) 9f - Use 'response.data' in the constant 'gifs' instead of an empty array  ok
+(132) 9g - Call the function buildGIFCard with proper parameters   ok
+(136) 9h - Display a message in console in case of error  ok
+(34) 9i - Open IndexedDB's database  ok
+(36) 9j - Save GIF data into IndexedDB's database  ok
 (38) 9k - Put GIF media (image and video) into a cache named "gif-images"
 (123) 9l - Open IndexedDB's database
 (127) 9m - Get GIF from IndexedDB's database, by its ID
