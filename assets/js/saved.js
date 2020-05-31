@@ -6,11 +6,10 @@ function removeGIFFromFavorite(event) {
     const gifVideoUrl = gifElement.querySelector('source').src;
     const gifImageUrl = gifElement.querySelector('img').src;
 
-    const db = window.db;
+    const dbs = window.db;
 
     dbs.open().then(async (db) =>{
-        
-        await db.gifs.delete(gifId);
+        await db.gifs.delete(parseInt(gifId));
     }).catch('NoSuchDatabaseError', function(e) {
         // Database with that name did not exist
         console.error ("Database not found");
@@ -23,6 +22,14 @@ function removeGIFFromFavorite(event) {
     // TODO: 6b - Remove GIF from local database using its ID
 
     // TODO: 6c - Remove GIF media (image and video) from cache
+
+    const cacheName = 'gif-images';
+    caches
+    .open(cacheName)
+    .then(cache => {
+    cache.delete(gifImageUrl);
+    cache.delete(gifVideoUrl);
+    });
 
     // Remove GIF element
     const articlesContainerElement = document.getElementById("gifs");

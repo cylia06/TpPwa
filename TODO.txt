@@ -37,30 +37,30 @@ index.html
 
 saved.html
 (165) 4c - Declare a new local database using Dexie named 'ILoveGifs' (case-sensitive) ok
-(168) 4d - Declare a table named 'gifs' that stores the following columns: 'id', 'title', 'imageUrl', 'videoUrl'
-(  !!!!!!!!! A REVOIR    ====)
+(168) 4d - Declare a table named 'gifs' that stores the following columns: 'id', 'title', 'imageUrl', 'videoUrl'  ok
+
 search.html
-(180) 4e - Declare a new local database using Dexie named 'ILoveGifs' (case-sensitive)
-(183) 4f - Declare a table named 'gifs' that stores the following columns: 'id', 'title', 'imageUrl', 'videoUrl'
-(  !!!!!!!!! A REVOIR    ====)
+(180) 4e - Declare a new local database using Dexie named 'ILoveGifs' (case-sensitive)  ok
+(183) 4f - Declare a table named 'gifs' that stores the following columns: 'id', 'title', 'imageUrl', 'videoUrl'  ok
+
 /assets/js/saved.js
-(78) 5a - Open IndexedDB's database
-(80) 5b - Fetch saved GIFs from local database and display them (use function buildGIFCard)
-(11) 6a - Open IndexedDB's database
-(13) 6b - Remove GIF from local database using its ID
-(15) 6c - Remove GIF media (image and video) from cache
+(78) 5a - Open IndexedDB's database ok
+(80) 5b - Fetch saved GIFs from local database and display them (use function buildGIFCard)  ok
+(11) 6a - Open IndexedDB's database  ok
+(13) 6b - Remove GIF from local database using its ID ok
+(15) 6c - Remove GIF media (image and video) from cache ok
 
 index.html
-(9) 7a - Declare a theme color in meta (use #f44336 or your favorite color)
+(9) 7a - Declare a theme color in meta (use #f44336 or your favorite color) ok
 
 saved.html
-(10) 7b - Declare a theme color in meta (use #f44336 or your favorite color)
+(10) 7b - Declare a theme color in meta (use #f44336 or your favorite color) ok
 
 search.html
-(10) 7c - Declare a theme color in meta (use #f44336 or your favorite color)
+(10) 7c - Declare a theme color in meta (use #f44336 or your favorite color) ok
 
 manifest.webmanifest
-(1) 8a - Declare a manifest. It must contain the following fields:
+(1) 8a - Declare a manifest. It must contain the following fields:  ok
                - name
                - short_name
                - description
@@ -74,13 +74,13 @@ manifest.webmanifest
                - Two shortcuts: One to access search easily, one to access saved GIFs easily
 
 index.html
-(96) 8b - Use Manifest here by using a <link>
+(96) 8b - Use Manifest here by using a <link>  ok
 
 saved.html
-(97) 8c - Use Manifest here by using a <link>
+(97) 8c - Use Manifest here by using a <link> ok
 
 search.html
-(97) 8d - Use Manifest here by using a <link>
+(97) 8d - Use Manifest here by using a <link> ok
 
 /assets/js/search.js
 (107) 9a - Set up a new URL object to use Giphy search endpoint ok
@@ -93,7 +93,7 @@ search.html
 (136) 9h - Display a message in console in case of error  ok
 (34) 9i - Open IndexedDB's database  ok
 (36) 9j - Save GIF data into IndexedDB's database  ok
-(38) 9k - Put GIF media (image and video) into a cache named "gif-images"
-(123) 9l - Open IndexedDB's database
-(127) 9m - Get GIF from IndexedDB's database, by its ID
-(129) 9n - Create a boolean `isSaved` to check if the GIF was already saved
+(38) 9k - Put GIF media (image and video) into a cache named "gif-images" ok
+(123) 9l - Open IndexedDB's database ok
+(127) 9m - Get GIF from IndexedDB's database, by its ID ok
+(129) 9n - Create a boolean `isSaved` to check if the GIF was already saved ok
