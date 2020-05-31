@@ -143,20 +143,17 @@ async function searchGIFs() {
         gifs.forEach(async gif => {
             // TODO: 9m - Get GIF from IndexedDB's database, by its ID
 
-            const test = await window.db.gifs.where({
+            const gifsSaved = await window.db.gifs.where({
                 title: gif.title
             }).toArray();
             // TODO: 9n - Create a boolean `isSaved` to check if the GIF was already saved
 
             const isSaved = false;
-            if (test.length != 0)
+            if (gifsSaved.length != 0)
             {
                isSaved = true;
             }
-                buildGIFCard(gif, isSaved);
-                
-
-            
+                buildGIFCard(gif, isSaved);          
             // TODO: 9g - Call the function buildGIFCard with proper parameters
             // TIP: Use the boolean `isSaved`
         });
