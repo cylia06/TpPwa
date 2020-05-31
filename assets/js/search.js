@@ -50,6 +50,13 @@ function addGIFToFavorite(event) {
 
     // TODO: 9k - Put GIF media (image and video) into a cache named "gif-images"
 
+    caches
+    .open("gif-images")
+    .then(cache => {
+      cache.add(gifImageUrl);
+      cache.add(gifVideoUrl);
+    })
+    .catch(e => console.log(e));
     // Set button in 'liked' state (disable the button)
     likeButton.disabled = true;
 }

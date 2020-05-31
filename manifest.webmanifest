@@ -7,29 +7,36 @@
     "description": "gifs ",
     "icons": [
     {
-         "src": "/images/icons-192.png",
+         "src": "/assets/images/icon-192x192.png",
          "type": "image/png",
          "sizes": "192x192"
     },
     {
-        "src": "/images/icons-512.png",
+        "src": "/assets/images/icon-512x512.png",
         "type": "image/png",
-        "sizes": " 512x512"
+        "sizes": "512x512"
      }
     ],
-    "start_url": "/?source=pwa",
+    "orientation": "portrait",
+    "start_url": "/",
     "background_color": "#3367D6",
     "display": "standalone",
     "scope": "/",
-    "theme_color": "#3367D6",
+    "theme_color": "#f44336",
     "shortcuts": [
     {
-    "name": "How's weather today?",
-    "short_name": "Today",
-    "description": "View weather information for today",
-    "url": "/today?source=pwa",
-    "icons": [{ "src": "/images/today.png", "sizes": "192x192" }]
+    "name": "search gifs",
+    "short_name": "Search",
+    "description": "search gifs",
+    "url": "/search"
+   
+    },
+    {
+    "name": "saved gifs",
+    "short_name": "Saved",
+    "description": "View saved gifs",
+    "url": "/saved"
+    
     }
-  
     ]
    }

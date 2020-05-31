@@ -50,7 +50,8 @@ function buildGIFCard(gifItem) {
 
     const imageSourceElement = document.createElement('img');
     imageSourceElement.classList.add('lazyload');
-    imageSourceElement.dataset.src = gifItem.images.original.webp;
+    //imageSourceElement.dataset.src = gifItem.images.original.webp;
+    imageSourceElement.dataset.src = gifItem.imageUrl;
     imageSourceElement.alt = `${gifItem.title} image`;
     gifImageElement.appendChild(imageSourceElement);
 

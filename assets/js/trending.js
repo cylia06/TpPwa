@@ -23,12 +23,32 @@ function addGIFToFavorite(event) {
 
     const db = window.db;
 
+    console.log("debug search")
+    console.log(event)
+    window.db.open().then(async (db) =>{
+        
+        await db.gifs.add({title : gifTitle, imageUrl: gifImageUrl, videoUrl:gifVideoUrl});
+        
+    }).catch('NoSuchDatabaseError', function(e) {
+        // Database with that name did not exist
+        console.error ("Database not found");
+    }).catch(function (e) {
+        console.error ("Oh uh: " + e);
+    });
+
     // TODO: 4a - Open IndexedDB's database
 
     // TODO: 4b - Save GIF data into IndexedDB's database
 
     // TODO: 4c - Put GIF media (image and video) into a cache named "gif-images"
 
+    caches
+    .open("gif-images")
+    .then(cache => {
+      cache.add(gifImageUrl);
+      cache.add(gifVideoUrl);
+    })
+    .catch(e => console.log(e));
     // Set button in 'liked' state (disable the button)
     likeButton.disabled = true;
 }
