@@ -14,7 +14,7 @@ function removeGIFFromFavorite(event) {
         // Database with that name did not exist
         console.error ("Database not found");
     }).catch(function (e) {
-        console.error ("Oh uh: " + e);
+        console.error ("Error: " + e);
     });
    
     // TODO: 6a - Open IndexedDB's database

@@ -43,7 +43,7 @@ function addGIFToFavorite(event) {
         // Database with that name did not exist
         console.error ("Database not found");
     }).catch(function (e) {
-        console.error ("Oh uh: " + e);
+        console.error ("Error: " + e);
     });
 
     // TODO: 9j - Save GIF data into IndexedDB's database
@@ -162,7 +162,7 @@ async function searchGIFs() {
     }).catch( e => console.log(e));
     }
     catch (e) {
-        console.log("erreur de chargement");
+        console.log("Error: " + e );
         // TODO: 9h - Display a message in console in case of error
     } finally {
         setLoading(false);
